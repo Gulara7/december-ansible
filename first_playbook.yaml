@@ -8,7 +8,7 @@
   tasks:
 
   - name: Install telnet
-    yum: 
+    package: 
       name: telnet
       state: absent
 
@@ -21,3 +21,6 @@
     group: 
       name: sales
       state: absent
+      
+  - name: Linux command 
+    command: "ls -l /tmp"
