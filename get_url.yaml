@@ -1,0 +1,14 @@
+#  ansible-playbook -i inventory  get_url.yaml 
+---
+- name: Content Playbook
+  hosts: all
+  user: ec2-user
+  become: yes 
+  become_method: sudo 
+  tasks:    
+
+  - name: Download wordpress
+    get_url:
+      url: https://wordpress.org/latest.tar.gz
+      dest: /tmp/wordpress.tar.gz
+      mode: '0440'
