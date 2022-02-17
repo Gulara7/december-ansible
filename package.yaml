@@ -43,3 +43,11 @@
       group: ec2-user
       mode: '0644'
       state: touch
+
+
+
+  - name: Update entire linux system
+    package: 
+      name: "*"
+      state: latest
+  
