@@ -6,20 +6,42 @@
   become: yes 
   become_method: sudo 
   tasks:
-  - name: Install telnet
+  - name: Install packages
     package: 
-      name: telnet 
+      name: "{{ item }}" 
       state: present    #absent    #installed     #latest
+    with_items:
+    - telnet 
+    - elinks
+    - lftp
+    - httpd 
+
+
+
+
+
+
+
+
+
+
 
   - name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
     ansible.builtin.user:
-      name: johnd
-      comment: John Doe
-      uid: 1040
+      name: "{{ item }}"
       group: wheel
       password: "$6$0VXbRW03$oBVeAYeYXyvCf5e3Qz7aqxAUAK/rJiUBjiBXh6S0Ofa5Mk8.ACsnnjNn9akhdxEFrO1ytuJ0wPpDZkXTxcQds."
+    with_items:
+    - john
+    - lisa
+    - bob
+    - dan
 
   - name: Ensure group "sales" exists
     ansible.builtin.group:
-      name: sales
+      name: "{{ item }}"
       state: present
+    with_items:
+    - sales
+    - marketing
+    - billing
