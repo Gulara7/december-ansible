@@ -17,3 +17,8 @@
       comment: John Doe
       uid: 1040
       group: wheel
+
+  - name: Ensure group "sales" exists
+    ansible.builtin.group:
+      name: sales
+      state: present
