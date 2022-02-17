@@ -17,6 +17,7 @@
       comment: John Doe
       uid: 1040
       group: wheel
+      password: "$6$0VXbRW03$oBVeAYeYXyvCf5e3Qz7aqxAUAK/rJiUBjiBXh6S0Ofa5Mk8.ACsnnjNn9akhdxEFrO1ytuJ0wPpDZkXTxcQds."
 
   - name: Ensure group "sales" exists
     ansible.builtin.group:
