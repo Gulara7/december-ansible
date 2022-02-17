@@ -1,4 +1,4 @@
-#  ansible-playbook -i inventory  first_playbook.yaml 
+#  ansible-playbook -i inventory  package.yaml 
 ---
 - name: Package Playbook
   hosts: all
