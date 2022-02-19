@@ -37,4 +37,4 @@
     - ansible_facts['distribution_version'] == "16.04"
     ansible.builtin.systemd:
       name: apache2
-      state: present
+      state: restarted
