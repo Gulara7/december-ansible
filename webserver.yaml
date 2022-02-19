@@ -6,13 +6,18 @@
   become: yes 
   become_method: sudo 
   tasks:    
-  - name: Install webserver on amazon
+  - name: Install webserver and tools on amazon
     when: 
     - ansible_facts['distribution'] == "Amazon"
     - ansible_facts['distribution_version'] == "2"
     ansible.builtin.package:
-      name: httpd
+      name: "{{ item }}"
       state: present
+    with_items:
+    - httpd
+    - php
+    - php-mysql
+    - wget 
     notify: Amazon-Webserver
 
   - name: Install webserver on ubuntu
@@ -23,7 +28,6 @@
       name: apache2
       state: present
     notify: Ubuntu-Webserver
-
 
 
 
