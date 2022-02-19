@@ -40,6 +40,9 @@
       dest: /tmp/
       remote_src: true
 
+  - name: Host Wordpress
+    shell: "cp -rf /tmp/wordpress/* /var/www/html/"
+    ignore_errors: true
 
 
   - name: Install webserver on ubuntu
