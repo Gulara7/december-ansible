@@ -20,8 +20,6 @@
     - wget 
     notify: Amazon-Webserver
 
-
-
   - name: Download wordpress
     when: 
     - ansible_facts['distribution'] == "Amazon"
@@ -47,7 +45,6 @@
     shell: "cp -rf /tmp/wordpress/* /var/www/html/"
     ignore_errors: true
 
-
   - name: Install webserver on ubuntu
     when: 
     - ansible_facts['distribution'] == "Ubuntu"
@@ -57,8 +54,6 @@
       state: present
     notify: Ubuntu-Webserver
 
-
-
   handlers:
     - name: Amazon-Webserver
       when: 
@@ -67,7 +62,6 @@
       ansible.builtin.systemd:
         name: httpd
         state: restarted
-
 
     - name: Ubuntu-Webserver
       when: 
