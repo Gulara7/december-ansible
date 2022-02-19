@@ -13,6 +13,7 @@
     ansible.builtin.package:
       name: httpd
       state: present
+    notify: Amazon-Webserver
 
   - name: Install webserver on ubuntu
     when: 
@@ -21,20 +22,25 @@
     ansible.builtin.package:
       name: apache2
       state: present
-
-  - name: Start webserver
-    when: 
-    - ansible_facts['distribution'] == "Amazon"
-    - ansible_facts['distribution_version'] == "2"
-    ansible.builtin.systemd:
-      name: httpd
-      state: restarted
+    notify: Ubuntu-Webserver
 
 
-  - name: Start webserver on ubuntu
-    when: 
-    - ansible_facts['distribution'] == "Ubuntu"
-    - ansible_facts['distribution_version'] == "16.04"
-    ansible.builtin.systemd:
-      name: apache2
-      state: restarted
+
+
+  handlers:
+    - name: Amazon-Webserver
+      when: 
+      - ansible_facts['distribution'] == "Amazon"
+      - ansible_facts['distribution_version'] == "2"
+      ansible.builtin.systemd:
+        name: httpd
+        state: restarted
+
+
+    - name: Ubuntu-Webserver
+      when: 
+      - ansible_facts['distribution'] == "Ubuntu"
+      - ansible_facts['distribution_version'] == "16.04"
+      ansible.builtin.systemd:
+        name: apache2
+        state: restarted
