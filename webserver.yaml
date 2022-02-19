@@ -13,3 +13,11 @@
     ansible.builtin.package:
       name: httpd
       state: present
+
+  - name: Install webserver on ubuntu
+    when: 
+    - ansible_facts['distribution'] == "Ubuntu"
+    - ansible_facts['distribution_version'] == "16.04"
+    ansible.builtin.package:
+      name: apache2
+      state: present
