@@ -1,4 +1,4 @@
-#  ansible-playbook -i inventory  webserver.yaml 
+#  ansible-playbook  webserver.yaml 
 ---
 - name: Content Playbook
   hosts: all
