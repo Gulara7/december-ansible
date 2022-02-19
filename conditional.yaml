@@ -1,0 +1,19 @@
+#  ansible-playbook -i inventory  conditional.yaml 
+---
+- name: Content Playbook
+  hosts: all
+  user: ec2-user
+  become: yes 
+  become_method: sudo 
+  tasks:    
+  - name: Add user bob  to amazon machine
+    when: ansible_facts['distribution'] == "Amazon"
+    ansible.builtin.user:
+      name: bob
+      state: present
+
+  - name: Add user bob  to Ubuntu machine
+    when: ansible_facts['distribution'] == "Ubuntu"
+    ansible.builtin.group:
+      name: sales
+      state: present
