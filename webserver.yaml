@@ -41,6 +41,9 @@
       remote_src: true
 
   - name: Host Wordpress
+    when: 
+    - ansible_facts['distribution'] == "Amazon"
+    - ansible_facts['distribution_version'] == "2"
     shell: "cp -rf /tmp/wordpress/* /var/www/html/"
     ignore_errors: true
 
