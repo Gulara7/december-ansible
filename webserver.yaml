@@ -5,6 +5,9 @@
   user: ec2-user
   become: yes 
   become_method: sudo 
+  vars:
+   wordpress_version: "4.0.32"
+   php_version: "5.4.16"
   tasks:    
   - name: Install webserver and tools on amazon
     when: 
@@ -15,8 +18,8 @@
       state: present
     with_items:
     - httpd
-    - php
-    - php-mysql
+    - php-{{ php_version }}
+    - php-mysql-{{ php_version }}
     - wget 
     notify: Amazon-Webserver
 
@@ -25,8 +28,8 @@
     - ansible_facts['distribution'] == "Amazon"
     - ansible_facts['distribution_version'] == "2"
     get_url:
-      url: https://wordpress.org/wordpress-4.0.32.tar.gz
-      dest: /tmp/wordpress-4.0.32.tar.gz
+      url: https://wordpress.org/wordpress-{{ wordpress_version }}.tar.gz
+      dest: /tmp/wordpress-{{ wordpress_version }}.tar.gz
       mode: '0440'
 
   - name: Extract wordpress
@@ -34,7 +37,7 @@
     - ansible_facts['distribution'] == "Amazon"
     - ansible_facts['distribution_version'] == "2"
     ansible.builtin.unarchive:
-      src: /tmp/wordpress-4.0.32.tar.gz
+      src: /tmp/wordpress-{{ wordpress_version }}.tar.gz
       dest: /tmp/
       remote_src: true
 
