@@ -10,3 +10,6 @@
       image: ami-0ab4d1e9cf9a1215a
       count: 1
       wait: yes
+      # user_data: "sudo yum install httpd -y"
+      instance_tags:
+        Name: "Ansible"
