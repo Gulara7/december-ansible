@@ -1,8 +1,6 @@
---- # ansible-playbook IAAC/ec2.yaml 
+--- # ansible-playbook IAAC/ec2.yaml   --extra-vars "@IAAC/envs/virginia.yaml"
 - name: Create ec2 
   hosts: localhost
-  vars_files:
-    envs/ohio.yaml
   tasks:
   - name: EC
     amazon.aws.ec2:
