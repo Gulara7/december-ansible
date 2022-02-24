@@ -1,4 +1,4 @@
----
+--- # ansible-playbook IAAC/ec2.yaml 
 - name: Create ec2 
   hosts: localhost
   tasks:
