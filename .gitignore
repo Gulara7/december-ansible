@@ -128,3 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 r1soft/server.yaml
+r1soft/server.yaml
