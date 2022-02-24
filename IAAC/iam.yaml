@@ -4,5 +4,9 @@
   tasks:
   - name: Create a user
     community.aws.iam_user:
-      name: testuser1
+      name: "{{ item }}"
       state: present
+    with_items:
+    - testuser1
+    - testuser2
+    - testuser3
