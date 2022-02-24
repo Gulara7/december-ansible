@@ -1,0 +1,12 @@
+--- # ansible-playbook IAAC/ec2.yaml
+- name: Works with ec2
+  hosts: localhost
+  tasks:
+  - name: restart a particular instance by its ID
+    amazon.aws.ec2_instance:
+      region: "us-east-1"
+      key_name: "laptop"
+      instance_type: "t2.micro"
+      image_id: ami-033b95fb8079dc481
+      state: present
+      
