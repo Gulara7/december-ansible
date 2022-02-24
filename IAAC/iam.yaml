@@ -13,7 +13,7 @@
 
 
 
-  - name: Create a group
-    community.aws.iam_group:
-      name: testgroup1
-      state: present
+  # - name: Create a group
+  #   community.aws.iam_group:
+  #     name: testgroup1
+  #     state: present
