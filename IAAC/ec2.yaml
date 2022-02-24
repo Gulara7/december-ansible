@@ -8,8 +8,6 @@
       key_name: "{{ key_name }}"
       instance_type: "{{ instance_type }}"
       image: "{{ image }}"
-      # assign_public_ip: false
-      # vpc_subnet_id: subnet-03e9cab473ca995a4
       user_data: "sudo yum install httpd -y"
       instance_tags:
         Name: "{{ Name }}"
