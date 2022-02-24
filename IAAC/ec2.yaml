@@ -11,3 +11,10 @@
       user_data: "sudo yum install httpd -y"
       instance_tags:
         Name: "{{ Name }}"
+
+  #   # Simple attachment action
+  - amazon.aws.ec2_vol:
+      instance: i-03fc87795a31b700d
+      volume_size: 5
+      device_name: sdd
+      region: "{{ region }}"
