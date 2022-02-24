@@ -10,3 +10,10 @@
     - testuser1
     - testuser2
     - testuser3
+
+
+
+  - name: Create a group
+    community.aws.iam_group:
+      name: testgroup1
+      state: present
