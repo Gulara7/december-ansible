@@ -3,7 +3,7 @@
   hosts: all
   become: yes
   become_method: sudo 
-  vars_file:
+  vars_files:
     r1soft/server.yaml
   tasks:
   - name: Create a repo

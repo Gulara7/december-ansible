@@ -5,7 +5,7 @@ __pycache__/
 inventory
 # C extensions
 *.so
-r1soft/server.yaml
+**r1soft/server.yaml**
 # Distribution / packaging
 .Python
 build/
@@ -127,5 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+r1soft/server.yaml
 r1soft/server.yaml
 r1soft/server.yaml
