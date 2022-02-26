@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 inventory
+**tower_config.sh
 # C extensions
 *.so
 **r1soft/server.yaml**
