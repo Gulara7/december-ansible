@@ -1,4 +1,4 @@
---- # ansible-playbook IAAC/vpc.yaml   --extra-vars "@IAAC/envs/virginia.yaml"
+--- # ansible-playbook IAAC/vpc.yaml  
 - name: Create vpc 
   hosts: localhost
   vars_files:
@@ -16,4 +16,4 @@
 
   - name: Get value 
     debug: 
-      var: Ansible.vpc.id
+      var: Ansible
