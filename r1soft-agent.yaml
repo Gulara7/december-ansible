@@ -31,6 +31,7 @@
     notify:
     - Start R1soft Agent 
     - Test Connection
+    - Test Connection for CentOS
     - Get Key
 
 
@@ -38,6 +39,11 @@
   - name: Test Connection
     when: ( ansible_facts['distribution'] == "Ubuntu" or ansible_facts['distribution_version'] == "16.04" )
     ansible.builtin.raw: serverbackup-setup --test-connection
+
+  - name: Test Connection for CentOS
+    when: ( ansible_facts['distribution'] == "CentOS" or ansible_facts['distribution_version'] == "7" )
+    ansible.builtin.raw: serverbackup-setup --test-connection
+
 
 
   - name: Get Key

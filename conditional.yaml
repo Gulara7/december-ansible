@@ -11,28 +11,59 @@
     when: 
     - ansible_facts['distribution'] == "Amazon"
     - ansible_facts['distribution_version'] == "2"
-    ansible.builtin.user:
-      name: bob
-      state: present
-    ignore_errors: true
+    ansible.builtin.systemd:
+      name: httpd
+      state: stopped
+
+  - name: Add user bob  to amazon machine
+    when: 
+    - ansible_facts['distribution'] == "Amazon"
+    - ansible_facts['distribution_version'] == "2"
+    ansible.builtin.systemd:
+      name: crond
+      state: stopped
+
+  - name: Add user bob  to amazon machine
+    when: 
+    - ansible_facts['distribution'] == "Amazon"
+    - ansible_facts['distribution_version'] == "2"
+    ansible.builtin.systemd:
+      name: sbm-agent
+      state: stopped
 
 
-  # - name: Linux command
-  #   command: |
-  #   - tar  czvf   backup.tar.gz  /etc   /mnt 
-  #   - tar  czvf   backup.tar.gz  /etc   /mnt 
-  #   - tar  czvf   backup.tar.gz  /etc   /mnt 
-  #   - tar  czvf   backup.tar.gz  /etc   /mnt 
-
-  # - name: Another command 
-  #   command: "{{ item }}"
-  #   with_items:
-  #   - tar  czvf   backup.tar.gz  /etc   /mnt 
-  #   - tar  czvf   backup.tar.gz  /etc   /mnt 
+      
+  - name: Add user bob  to amazon machine
+    when: 
+    - ansible_facts['distribution'] == "Amazon"
+    - ansible_facts['distribution_version'] == "2"
+    ansible.builtin.package:
+      name: kernel
+      state: latest
 
 
-  - name: Add user bob  to Ubuntu machine
-    when: ansible_facts['distribution'] == "Ubuntu"
-    ansible.builtin.group:
-      name: sales
-      state: present
+
+  - name: Add user bob  to amazon machine
+    when: 
+    - ansible_facts['distribution'] == "Amazon"
+    - ansible_facts['distribution_version'] == "2"
+    ansible.builtin.systemd:
+      name: httpd
+      state: started
+
+  - name: Add user bob  to amazon machine
+    when: 
+    - ansible_facts['distribution'] == "Amazon"
+    - ansible_facts['distribution_version'] == "2"
+    ansible.builtin.systemd:
+      name: crond
+      state: started
+
+  - name: Add user bob  to amazon machine
+    when: 
+    - ansible_facts['distribution'] == "Amazon"
+    - ansible_facts['distribution_version'] == "2"
+    ansible.builtin.systemd:
+      name: sbm-agent
+      state: started
+
